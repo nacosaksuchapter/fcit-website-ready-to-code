@@ -43,7 +43,7 @@ function BlogPost() {
       </header>
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-        {post.body.map((para, i) => (
+        {post.body.map((para: string, i: number) => (
           <p key={i} className="mb-6 text-lg leading-relaxed text-foreground/90">
             {para}
           </p>
