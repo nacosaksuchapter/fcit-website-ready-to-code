@@ -1,0 +1,25 @@
+{
+  // Root Cloudflare config so Workers Builds treats this as a pre-configured
+  // project and SKIPS its TanStack Start auto-setup wizard (which fails with
+  // "Cannot modify Vite config: could not find a valid plugins array").
+  //
+  // `npm run build` (vite build) emits the real worker to dist/server and also
+  // writes .wrangler/deploy/config.json, which redirects `wrangler deploy` to
+  // dist/server/wrangler.json automatically. This root file mirrors that output
+  // so a direct deploy works either way.
+  "name": "fcit-website",
+  "compatibility_date": "2026-06-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/server/index.mjs",
+  "no_bundle": true,
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "dist/client"
+  },
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.mjs", "**/*.js"]
+    }
+  ]
+}
