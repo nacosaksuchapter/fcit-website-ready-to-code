@@ -16,6 +16,7 @@ dist-ssr
 .nitro
 *.local
 temp/
+package-lock.json
 
 # Wrangler / Cloudflare
 .wrangler/
